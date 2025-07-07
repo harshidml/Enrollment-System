@@ -8,13 +8,13 @@ class Enrollment(Document):
     def validate(self):
         course_doc = frappe.get_doc("Courses", self.course)
 
-        if course_doc.custom_available_seats <= 0:
-            frappe.throw(f"No seats available for {course_doc.name}. {course_doc.custom_available_seats} seats left.")
+        if course_doc.available_seats <= 0:
+            frappe.throw(f"No seats available for {course_doc.name}. {course_doc.available_seats} seats left.")
 
         self.course_fees = course_doc.price
         self.total_fees = course_doc.price
 
     def after_insert(self):
         course_doc = frappe.get_doc("Courses", self.course)
-        course_doc.custom_available_seats -= 1
+        course_doc.available_seats -= 1
         course_doc.save()
