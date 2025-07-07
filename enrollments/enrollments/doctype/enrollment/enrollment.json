@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "E-.###",
+ "creation": "2025-07-07 13:52:38.054604",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enrollment_type",
+  "dynamic_link_pobq",
+  "course",
+  "registration_fees",
+  "total_fees"
+ ],
+ "fields": [
+  {
+   "fieldname": "enrollment_type",
+   "fieldtype": "Link",
+   "label": "Enrollment Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "dynamic_link_pobq",
+   "fieldtype": "Dynamic Link",
+   "label": "Name",
+   "options": "enrollment_type"
+  },
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "Courses"
+  },
+  {
+   "default": "100",
+   "fieldname": "registration_fees",
+   "fieldtype": "Int",
+   "label": "Registration Fees"
+  },
+  {
+   "fieldname": "total_fees",
+   "fieldtype": "Float",
+   "label": "Total Fees"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-07 13:55:34.836148",
+ "modified_by": "Administrator",
+ "module": "Enrollments",
+ "name": "Enrollment",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
