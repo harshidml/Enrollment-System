@@ -6,19 +6,19 @@ frappe.ui.form.on("Enrollment", {
         if (frm.doc.enrollment_type && frm.doc.dynamic_link_pobq) {
             frappe.db.get_doc(frm.doc.enrollment_type, frm.doc.dynamic_link_pobq)
                 .then(record => {
-                    frm.set_value('custom_email', record.email);
+                    frm.set_value('email', record.email);
                 });
         }
     },
     registration_fees: function(frm) {
         let reg_fees = parseFloat(frm.doc.registration_fees) || 0;
-        let course_fees = parseFloat(frm.doc.custom_course_fees) || 0;
+        let course_fees = parseFloat(frm.doc.course_fees) || 0;
         frm.set_value('total_fees', reg_fees + course_fees);
     },
 
-    custom_course_fees: function(frm) {
+    course_fees: function(frm) {
         let reg_fees = parseFloat(frm.doc.registration_fees) || 0;
-        let course_fees = parseFloat(frm.doc.custom_course_fees) || 0;
+        let course_fees = parseFloat(frm.doc.course_fees) || 0;
         frm.set_value('total_fees', reg_fees + course_fees);
     },
     onload(frm) {

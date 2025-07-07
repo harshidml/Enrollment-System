@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "course_name",
+  "credits",
   "price"
  ],
  "fields": [
@@ -21,12 +22,17 @@
    "fieldtype": "Float",
    "label": "Price",
    "precision": "2"
+  },
+  {
+   "fieldname": "credits",
+   "fieldtype": "Int",
+   "label": "credits"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-07 13:51:00.507999",
+ "modified": "2025-07-07 16:21:35.881301",
  "modified_by": "Administrator",
  "module": "Enrollments",
  "name": "Courses",

@@ -8,7 +8,9 @@
  "field_order": [
   "enrollment_type",
   "dynamic_link_pobq",
+  "email",
   "course",
+  "course_fees",
   "registration_fees",
   "total_fees"
  ],
@@ -41,12 +43,23 @@
    "fieldname": "total_fees",
    "fieldtype": "Float",
    "label": "Total Fees"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fetch_from": "course.price",
+   "fieldname": "course_fees",
+   "fieldtype": "Float",
+   "label": "Course Fees"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-07 13:55:34.836148",
+ "modified": "2025-07-07 16:27:47.721182",
  "modified_by": "Administrator",
  "module": "Enrollments",
  "name": "Enrollment",
