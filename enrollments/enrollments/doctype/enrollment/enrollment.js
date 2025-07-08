@@ -25,6 +25,35 @@ frappe.ui.form.on("Enrollment", {
 		if (frm.is_new()) {
             frm.set_intro('Course Enrollment is open only for 3 more days!');
         }
-	}
+	},
+    refresh: function(frm) {
+        if (!frm.is_new()) {
+            frm.page.clear_primary_action();
+
+            frm.page.set_primary_action('Cancel Enrollment', () => {
+                frappe.confirm(
+                    '⚠️ Deleting this enrollment will only give you 50% refund.\n\nDo you still want to permanently delete it?',
+                    function () {
+                        // User clicked Yes
+                        frappe.call({
+                            method: "frappe.client.delete",
+                            args: {
+                                doctype: frm.doctype,
+                                name: frm.docname
+                            },
+                            callback: function() {
+                                frappe.set_route("List", frm.doctype);
+                                frappe.show_alert("Enrollment Cancelled");
+                            }
+                        });
+                    },
+                    function () {
+                        // User clicked No
+                        frappe.msgprint("Enrollment cancell Aborted.");
+                    }
+                );
+            });
+        }
+    }
 
 });

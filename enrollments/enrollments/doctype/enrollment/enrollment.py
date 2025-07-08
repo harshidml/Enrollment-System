@@ -18,3 +18,10 @@ class Enrollment(Document):
         course_doc = frappe.get_doc("Courses", self.course)
         course_doc.available_seats -= 1
         course_doc.save()
+
+    def on_trash(self):
+        if frappe.db.exists("Courses", self.course):
+            course_doc = frappe.get_doc("Courses", self.course)
+            course_doc.available_seats += 1
+            course_doc.save()
+
