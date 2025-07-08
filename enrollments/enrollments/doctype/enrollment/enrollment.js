@@ -34,7 +34,6 @@ frappe.ui.form.on("Enrollment", {
                 frappe.confirm(
                     '⚠️ Deleting this enrollment will only give you 50% refund.\n\nDo you still want to permanently delete it?',
                     function () {
-                        // User clicked Yes
                         frappe.call({
                             method: "frappe.client.delete",
                             args: {
@@ -48,7 +47,6 @@ frappe.ui.form.on("Enrollment", {
                         });
                     },
                     function () {
-                        // User clicked No
                         frappe.msgprint("Enrollment cancell Aborted.");
                     }
                 );
