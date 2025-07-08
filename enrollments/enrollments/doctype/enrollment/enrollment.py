@@ -3,6 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.model.mapper import get_mapped_doc
 
 class Enrollment(Document):
     def validate(self):
@@ -25,3 +26,26 @@ class Enrollment(Document):
             course_doc.available_seats += 1
             course_doc.save()
 
+@frappe.whitelist()
+def make_todo(target_doc=None):
+    refrenceType = frappe.flags.args.refrenceType
+    source_name = frappe.flags.args.source_name
+
+    target_doc = get_mapped_doc(
+        refrenceType,source_name,{
+            refrenceType:{
+                "doctype":"ToDo",
+                "field_map":{
+                    "name":"reference_name",
+                    "doctype":"reference_type"
+                },
+                "postprocess": update_todo_fields
+            }
+        }
+    )
+    return target_doc
+
+def update_todo_fields(source_doc, target_doc, source_parent=None):
+    target_doc.description = f"Student {source_doc.dynamic_link_pobq} enrolled. Course Fee: ₹{source_doc.course_fees}"
+    target_doc.priority = "High"
+    target_doc.assigned_by = frappe.session.user

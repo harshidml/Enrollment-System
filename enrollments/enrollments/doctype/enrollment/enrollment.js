@@ -52,6 +52,23 @@ frappe.ui.form.on("Enrollment", {
                 );
             });
         }
+    },
+
+    // Test
+
+    setup: function(frm) {
+        frm.make_methods = {
+            'ToDo': () => {
+                frappe.model.open_mapped_doc({
+                    method: "enrollments.enrollments.doctype.enrollment.enrollment.make_todo",
+                    args: {
+                        source_name: frm.doc.name,
+                        refrenceType:"Enrollment"
+                    }
+                });
+            }
+        };
     }
+
 
 });
