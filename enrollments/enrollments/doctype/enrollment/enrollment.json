@@ -9,6 +9,7 @@
   "enrollment_type",
   "dynamic_link_pobq",
   "email",
+  "semester",
   "course",
   "course_fees",
   "registration_fees",
@@ -54,6 +55,11 @@
    "fieldname": "course_fees",
    "fieldtype": "Float",
    "label": "Course Fees"
+  },
+  {
+   "fieldname": "semester",
+   "fieldtype": "Int",
+   "label": "Semester"
   }
  ],
  "grid_page_length": 50,
@@ -64,7 +70,7 @@
    "link_fieldname": "reference_name"
   }
  ],
- "modified": "2025-07-08 15:27:49.881853",
+ "modified": "2025-07-09 11:10:03.588130",
  "modified_by": "Administrator",
  "module": "Enrollments",
  "name": "Enrollment",

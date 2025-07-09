@@ -7,6 +7,8 @@ frappe.ui.form.on("Enrollment", {
             frappe.db.get_doc(frm.doc.enrollment_type, frm.doc.dynamic_link_pobq)
                 .then(record => {
                     frm.set_value('email', record.email);
+                    frm.set_value('semester', record.semester);
+
                 });
         }
     },
