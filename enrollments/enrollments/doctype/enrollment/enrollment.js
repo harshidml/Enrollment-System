@@ -24,10 +24,18 @@ frappe.ui.form.on("Enrollment", {
         frm.set_value('total_fees', reg_fees + course_fees);
     },
     onload(frm) {
-		if (frm.is_new()) {
+        if (frm.is_new()) {
             frm.set_intro('Course Enrollment is open only for 3 more days!');
         }
-	},
+
+        frm.set_query("course", () => {
+            return {
+                filters: {
+                    available_seats: [">", 0]
+                }
+            };
+        });
+    },
     refresh: function(frm) {
         if (!frm.is_new()) {
             frm.page.clear_primary_action();

@@ -242,3 +242,9 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+scheduler_events = {
+    "daily": [
+        "enrollments.enrollments.doctype.student_attendance.student_attendance.update_attendance_count"
+    ]
+}
+

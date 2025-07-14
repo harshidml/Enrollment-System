@@ -19,16 +19,37 @@ frappe.ui.form.on('students', {
 
                         const row = assignment.assignment_details[0];
 
-                        let content = `
-                            <b>📅 Submission Date:</b> ${row.submission_date || 'Not set'}<br><br>
-                            <b>📝 Assignment Details:</b><br>${row.details || 'No details'}
-                        `;
-
-                        frappe.msgprint({
-                            title: `Assignment Info for Student: ${frm.doc.name}`,
-                            message: content,
-                            indicator: "blue"
+                        // Show assignment details with Completed button
+                        const d = new frappe.ui.Dialog({
+                            title: `Assignment Info for ${frm.doc.name}`,
+                            fields: [
+                                {
+                                    fieldtype: "HTML",
+                                    fieldname: "assignment_html",
+                                    options: `
+                                        <div>
+                                            <b>📅 Submission Date:</b> ${row.submission_date || 'Not set'}<br><br>
+                                            <b>📝 Assignment Details:</b><br>${row.details || 'No details'}
+                                        </div>
+                                    `
+                                }
+                            ],
+                            primary_action_label: "✅ Mark as Completed",
+                            primary_action() {
+                                frappe.call({
+                                    method: "enrollments.enrollments.doctype.assigment.assigment.update_student_pointer",
+                                    args: {
+                                        student: frm.doc.name
+                                    },
+                                    callback: function(r) {
+                                        frappe.msgprint(`Pointer updated for Student: ${frm.doc.name}`);
+                                        d.hide();
+                                    }
+                                });
+                            }
                         });
+
+                        d.show();
                     }
                 });
             });

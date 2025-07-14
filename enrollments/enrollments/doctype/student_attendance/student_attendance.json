@@ -1,54 +1,46 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:name1",
- "creation": "2025-07-07 13:45:50.563443",
+ "autoname": "format:Attendance-{date}",
+ "creation": "2025-07-14 10:05:12.262471",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "name1",
-  "email",
-  "semester",
+  "date",
   "attendance",
-  "pointer"
+  "amended_from"
  ],
  "fields": [
   {
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name",
-   "unique": 1
-  },
-  {
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "label": "Email"
-  },
-  {
-   "fieldname": "semester",
-   "fieldtype": "Int",
-   "label": "Semester"
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
   },
   {
    "fieldname": "attendance",
-   "fieldtype": "Int",
-   "label": "Attendance"
+   "fieldtype": "Table",
+   "label": "Attendance",
+   "options": "Attendance"
   },
   {
-   "fieldname": "pointer",
-   "fieldtype": "Float",
-   "label": "Pointer",
-   "precision": "2"
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Student Attendance",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-14 12:10:24.252277",
+ "modified": "2025-07-14 11:10:56.583109",
  "modified_by": "Administrator",
  "module": "Enrollments",
- "name": "students",
- "naming_rule": "By fieldname",
+ "name": "Student Attendance",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
