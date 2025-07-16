@@ -18,13 +18,13 @@ class Enrollment(Document):
     def after_insert(self):
         course_doc = frappe.get_doc("Courses", self.course)
         course_doc.available_seats -= 1
-        course_doc.save()
+        course_doc.save(ignore_permissions=True)
 
     def on_trash(self):
         if frappe.db.exists("Courses", self.course):
             course_doc = frappe.get_doc("Courses", self.course)
             course_doc.available_seats += 1
-            course_doc.save()
+            course_doc.save(ignore_permissions=True)
 
 @frappe.whitelist()
 def make_todo(target_doc=None):

@@ -34,3 +34,21 @@ def run_pointer_job(student):
     student_doc = frappe.get_doc("students", student)
     student_doc.pointer = pointer
     student_doc.save(ignore_permissions=True)
+
+def has_permission(doc=None, ptype=None, user=None):
+    if not user:
+        user = frappe.session.user
+
+    if user == "Administrator":
+        return True if doc else ""
+
+    student_name = frappe.db.get_value("students", {"email": user})
+
+    if doc:
+        # For single record access
+        return ptype == "read" and doc.student == student_name
+    else:
+        # For List View filtering
+        if student_name:
+            return f"`tabAssigment`.student = '{student_name}'"
+        return "1=0"

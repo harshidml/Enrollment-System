@@ -1,0 +1,65 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"73_640lmic\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Student Management Dashboard</span>\",\"col\":12}},{\"id\":\"QTgLN9tTW3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Students\",\"col\":3}},{\"id\":\"OgU8xH4Tt3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Courses\",\"col\":3}},{\"id\":\"hRT4XmWqkQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Enrollment\",\"col\":3}},{\"id\":\"zdKbB9u08i\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Our Courses\",\"col\":6}},{\"id\":\"SfOgjn7Bbu\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Enrollments So Far..\",\"col\":6}}]",
+ "creation": "2025-07-15 11:22:48.046388",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "color-review-points",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Student Management Dashboard",
+ "links": [],
+ "modified": "2025-07-15 11:33:17.597310",
+ "modified_by": "Administrator",
+ "module": "Enrollments",
+ "name": "Student Management Dashboard",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [
+  {
+   "document_type": "Enrollment",
+   "label": "Enrollments So Far..",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "Courses",
+   "label": "Our Courses",
+   "quick_list_filter": "[]"
+  }
+ ],
+ "roles": [],
+ "sequence_id": 28.0,
+ "shortcuts": [
+  {
+   "color": "Yellow",
+   "doc_view": "List",
+   "label": "Students",
+   "link_to": "students",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Pink",
+   "doc_view": "List",
+   "label": "Courses",
+   "link_to": "Courses",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Enrollment",
+   "link_to": "Enrollment",
+   "stats_filter": "[[\"Enrollment\",\"name\",\"is\",\"set\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Student Management Dashboard"
+}

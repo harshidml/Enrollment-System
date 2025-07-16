@@ -248,3 +248,9 @@ scheduler_events = {
     ]
 }
 
+doc_events = {
+    "User": {
+        "after_insert": "enrollments.enrollments.api.user_permission.apply_student_user_permission",
+        "on_update": "enrollments.enrollments.api.user_permission.apply_student_user_permission"
+    }
+}
